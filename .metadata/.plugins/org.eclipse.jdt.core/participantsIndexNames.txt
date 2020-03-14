@@ -1,0 +1,13 @@
+INDEX VERSION 1.130
+D:\cts training\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2991116823.index
+\JSPExamples\src
+D:\cts training\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3479058441.index
+\BankJSPExample\src
+D:\cts training\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2974897351.index
+\SessionPrograms\src
+D:\cts training\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1342055493.index
+\Project\src
+D:\cts training\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1061085119.index
+\MiniProject\src
+D:\cts training\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1804854074.index
+\TrainingProject\src

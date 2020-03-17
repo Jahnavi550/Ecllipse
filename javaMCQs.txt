@@ -1,0 +1,245 @@
+1)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class StringPalindrome {
+	public static void main(String args[])
+	{
+		String rev="";
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a string");
+		String str=s.nextLine();
+		int len=str.length();
+		for(int i=len-1;i>=0;i--)
+		{
+			rev=rev+str.charAt(i);
+		}
+		if(str.equals(rev))
+			System.out.println("The given string is palindrome");
+		else
+			System.out.println("The given string is not palindrome");
+		String a=rev;
+		int sum=0;
+		for(int i=0;i<a.length();i++)
+		{
+			if(a.charAt(i)=='a'||a.charAt(i)=='e'||a.charAt(i)=='i'||a.charAt(i)=='o'||a.charAt(i)=='u')
+			{
+				sum=sum+1;
+			}
+		}
+		if(sum>=2)
+			System.out.println("valid");
+		else
+			System.out.println("not valid");
+			
+	}
+}
+--------------------------------------------------------------------------------------
+2)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class SumOfOddDigits {
+	public static void main(String args[])
+	{
+		int r,sum=0;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a integer value");
+		int n=s.nextInt();
+		while(n>0)
+		{
+			r=n%10;
+			if(r%2!=0)
+				sum=sum+r;
+			n=n/10;
+		}
+		System.out.println("odd sum is "+sum);
+	}
+}
+-------------------------------------------------------------------------------------------
+3)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class SumOfSquaresOfEven {
+	public static void main(String args[])
+	{
+		int r,sum=0;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a integer value");
+		int n=s.nextInt();
+		while(n>0)
+		{
+			r=n%10;
+			if(r%2==0)
+				sum=sum+r*r;
+			n=n/10;
+		}
+		System.out.println("sum of squares of even digits is "+sum);
+	}
+}
+------------------------------------------------------------------------------------------------
+4)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class FirstnAndLastn {
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a string");
+		String str=s.nextLine();
+		System.out.println("Enter a integer value");
+		int n=s.nextInt();
+		StringBuffer sb=new StringBuffer();
+		sb.append(str.substring(0,n));
+		sb.append(str.substring(str.length()-n));
+		System.out.println("the first n and last n string is "+sb.toString());
+	}
+}
+-------------------------------------------------------------------------------------------------------------
+5)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class ReverseOfNumber {
+	public static void main(String args[])
+	{
+		int r,rev=0;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a integer value");
+		int n=s.nextInt();
+		while(n>0)
+		{
+			r=n%10;
+			rev=rev*10+r;
+			n=n/10;
+		}
+		System.out.println("reverse of a number is "+rev);
+	}
+}
+--------------------------------------------------------------------------------------------------------------------------------
+6)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class PowerOfEachIndividualElement {
+
+	public static void main(String[] args) {
+		
+			int sum=0;
+			Scanner s=new Scanner(System.in);
+			System.out.println("Enter a integer value");
+			int n=s.nextInt();
+			System.out.println("Enter elements into an array");
+			int a[]=new int[n];
+			for(int i=0;i<n;i++)
+			{
+				a[i]=s.nextInt();
+			}
+			for(int i=0;i<n;i++)
+			{
+				sum=(int)(sum+Math.pow(a[i], i));
+			}
+			System.out.println("power of each individual element is :"+sum);
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------
+7)package JavaMCQ;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class DifferenceBetweenLargeAndSmall {
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a integer value");
+		int n=s.nextInt();
+		System.out.println("Enter elements into array");
+		int a[]=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		Arrays.sort(a);
+		int n1=a[a.length-1]-a[0];
+		int b=a.length;
+		if(b==1)
+			System.out.println("array elements are "+b);
+		else
+			System.out.println("difference is "+n1);
+	}
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+8)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class SeriesOfNumbers {
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a integer value");
+		int n=s.nextInt();
+		int i=0,es=0,os=0,sum=1;
+		if(n==1)
+		{
+			sum=n;	
+		}
+		for(i=3;i<=n;i+=4)
+		{
+			os=os+i;
+		}
+		for(i=5;i<=n;i+=4)
+		{
+			es=es+i;
+		}
+		sum+=os-es;
+		System.out.println("The sum of series is "+sum);
+	}
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+9)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class SumOfAllDigitsInString {
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a String with digits");
+		String str=s.next();
+		int sum=0;
+		for(int i=0;i<str.length();i++)
+		{
+			char a=str.charAt(i);
+			if(Character.isDigit(a))
+			{
+				int b=Integer.parseInt(String.valueOf(a));
+				sum+=b;
+			}
+		}
+		System.out.println("The sum of digits present in the string is "+sum);
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+10)package JavaMCQ;
+
+import java.util.Scanner;
+
+public class ValidColor {
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter a color");
+		String str=s.nextLine();
+		if(str.matches("(#)[A-F0-9]{6}"))
+			System.out.println("valid color");
+		else
+			System.out.println("invalid color");
+	}
+}

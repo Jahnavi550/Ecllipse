@@ -1,0 +1,228 @@
+admin.html
+<html>
+user type:
+password:
+</html>
+<frameset rows = "20%,80%">
+     <frame name = "top" src ="C:\Users\Admin\Desktop\kavya\trainingpic.jpg"/>
+     
+     
+  <frameset cols="40%,60%">
+
+ <frame src="adminwelcome.html">
+  
+  <frame src="Right.html" name="Workspace">
+ 
+</frameset>
+     
+  </frameset> 
+=======================================================================
+adminwelcome.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<head>
+<style>
+ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ width: 200px;
+ background-color: #f1f1f1;
+}
+li a {
+ display: block;
+ color: #000;
+ padding: 8px 16px;
+ text-decoration: none;
+}
+/* Change the link color on hover */
+li a:hover {
+ background-color: #555;
+ color: white;
+}
+</style>
+</head>
+<body>
+<ul>
+ <li><a href="#home">Home</a></li>
+ <li><a href="addemp.html">Add Employee</a></li>
+ <li><a href="update.html">Update Employee</a></li>
+ <li><a href="delete.html" target="Workspace">Delete Employee</a></li>
+</ul>
+
+</body>
+</html>
+===========================================================================
+associate.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>ur in associate</h1>
+</body>
+</html>
+==============================================================
+image.html
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<img src ="C:\Users\Admin\Desktop\kavya\trainingpic.jpg" width="100%" height="60px"/>
+</body>
+</html>
+
+
+===========================================================
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<head>
+<style>
+ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ width: 200px;
+ background-color: #f1f1f1;
+}
+li a {
+ display: block;
+ color: #000;
+ padding: 8px 16px;
+ text-decoration: none;
+}
+/* Change the link color on hover */
+li a:hover {
+ background-color: #555;
+ color: white;
+}
+</style>
+</head>
+<body>
+<ul>
+ <li><a href="#home">Home</a></li>
+ <li><a href="#aboutus">AboutUs</a></li>
+ <li><a href="#services">Services</a></li>
+ <li><a href="login.html" target="Workspace">Login</a></li>
+</ul>
+
+</body>
+</html>
+============================================================================
+login.html
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="VerifyUser.jsp" method="post">
+UserName :<input type="text" name="uname"/><br>
+Password :<input type="password" name="pwd"/><br>
+<input type="submit" value="submit"/>
+</form>
+</body>
+</html>
+============================================================
+main.html
+<frameset rows = "20%,80%">
+     <frame src="image.html"/>
+     
+     
+  <frameset cols="40%,60%">
+
+  <frame src="index.html">
+  <frame src="Right.html" name="Workspace">
+ 
+</frameset>
+     
+  </frameset> 
+=============================================================
+Right.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
+===========================================================
+VerifyUser.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="java.sql.*"  import="java.sql.Connection"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+String name=request.getParameter("uname");
+String pwd=request.getParameter("pwd");
+int flag=0;
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/training","root","root");
+Statement statement=connection.createStatement();
+String query="select * from users";
+ResultSet rs=statement.executeQuery(query);
+while(rs.next())
+{
+	String uname = rs.getString(2);
+	String password = rs.getString(3);
+	if((name.equals("admin"))&&(pwd.equals("admin")))
+	{
+		flag=1;
+		break;
+	}
+	else if((name.equals(uname))&&(pwd.equals(password)))
+	{
+ 	 flag=2;
+	  break;
+	}
+}
+if(flag==1)
+{
+	%>
+	<jsp:include page="admin.html"/>
+	<%	
+}
+else if(flag==2)
+{
+	%>
+	<jsp:include page="associate.html"/>
+	<%	
+}
+else
+{
+	out.println("<h3>UnAuthorised Users");
+	out.println("<br>Please Re-Login</h3>");
+	%>
+	<jsp:include page="login.html"/>
+	<%
+}
+statement.close();
+connection.close();
+%>
+</body>
+</html>

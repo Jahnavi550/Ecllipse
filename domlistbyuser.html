@@ -1,0 +1,20 @@
+<html>
+<head>
+	<script>
+		var parent=document.createElement("ol");
+		function change_text()
+		{
+			var child=document.createElement("li");
+			var string=document.getElementById("p1").value;
+			var text=document.createTextNode(string);
+			child.appendChild(text);
+			parent.appendChild(child);
+			document.body.appendChild(parent);
+		}
+	</script>
+</head>
+<body>
+	Enter your text<input type="text" id="p1"/>
+	<button onClick="change_text()" >create</button>
+</body>
+</html>

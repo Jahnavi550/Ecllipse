@@ -1,0 +1,64 @@
+1)select c.customer_number,c.firstname,a.account_number 
+from account_master a join customer_master c  
+on c.customer_number=a.customer_number 
+where  a.account_status='terminated' 
+order by c.customer_number,a.account_number; 
+
+-----------------+-----------+----------------+
+| customer_number | firstname | account_number |
++-----------------+-----------+----------------+
+| C00001          | RAMESH    | A00008         |
+| C00003          | RAHUL     | A00009         |
++-----------------+-----------+----------------+
+2 rows in set (0.00 sec)
+
+2)select b.branch_city, count(a.account_number) No_of_Accounts  
+from branch_master b left join account_master a
+on a.branch_id=b.branch_id  
+group by b.branch_city order by branch_city; 
+
+-------------+----------------+
+| branch_city | No_of_Accounts |
++-------------+----------------+
+| CHENNAI     |              0 |
+| DELHI       |              6 |
+| KOLKATA     |              0 |
+| MUMBAI      |              4 |
++-------------+----------------+
+4 rows in set (0.01 sec)
+
+3)select c.customer_number,c.firstname,c.lastname from
+customer_master c join loan_details l on c.customer_number=l.customer_number 
+group by l.customer_number having count(l.branch_id)>1 
+order by c.customer_number; 
+
++-----------------+-----------+----------+
+| customer_number | firstname | lastname |
++-----------------+-----------+----------+
+| C00001          | RAMESH    | SHARMA   |
+| C00002          | AVINASH   | MINHA    |
++-----------------+-----------+----------+
+2 rows in set (0.00 sec)
+
+4)select count(c.customer_number)Count from customer_master c join loan_details l 
+on c.customer_number=l.customer_number 
+where c.customer_number not in (select customer_number from account_master); 
+
++-------+
+| Count |
++-------+
+|     2 |
++-------+
+1 row in set (0.00 sec)
+
+5)select c.firstname,c.customer_city,a.account_number from
+customer_master c join account_master a on a.customer_number=c.customer_number 
+where c.occupation not in('service','student','business') 
+order by c.firstname,a.account_number; 
+
++-----------+---------------+----------------+
+| firstname | customer_city | account_number |
++-----------+---------------+----------------+
+| PARUL     | DELHI         | A00010         |
++-----------+---------------+----------------+
+1 row in set (0.00 sec)

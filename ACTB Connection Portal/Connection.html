@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1
+            {
+                color: #006666;
+                font-family: verdana;
+                text-align: center;
+            }
+            body
+            {
+                background-color: #EED426;
+            }
+            
+            
+            #rentalcost
+            {
+                
+                float: right;
+                
+                border-style: solid;
+                text-align: center;
+                
+            }
+            #rentalcost th,#rentalcost td
+            {
+                
+                border:1px solid;
+            }
+           
+        </style>
+        <script type="text/javascript">
+            function BillAmount()
+            { 
+                var duration=document.getElementById("duration").value;
+              
+                
+				var connectiontype=document.getElementById("connectiontype").value;
+                  var scheme=document.getElementsByName("scheme");
+				var TotalMonthlyRentalCost;
+          
+			    for(var i=0;i<scheme.length;i++)
+                {
+                    if(scheme[i].checked)
+                    {
+                        scheme=scheme[i].value;
+						
+                    }
+                }
+              
+			   
+             
+                if(scheme=="Local")
+                {
+				
+				if(connectiontype=='Pre')
+					{
+						TotalMonthlyRentalCost=(duration*200)+75;
+					}
+				else
+					{
+						TotalMonthlyRentalCost=(duration*200)+150;
+					}
+                }
+			else if(scheme=="STD")
+				{
+				
+					if(connectiontype=='Pre')
+					{
+						TotalMonthlyRentalCost=(duration*350)+75;
+					}
+					else
+					{
+						TotalMonthlyRentalCost=(duration*350)+150;
+					}
+                }
+                else
+                {
+				
+					if(connectiontype=='Pre')
+					{
+						TotalMonthlyRentalCost=(duration*500)+75;
+					}
+					else
+					{
+						TotalMonthlyRentalCost=(duration*500)+150;
+					}
+                }
+              
+                document.getElementById("result").innerHTML="The Total Monthly Rental Cost is Rs. "+TotalMonthlyRentalCost;
+			  
+			  
+			  
+				return false;               
+			   }
+           
+           
+        </script>
+    </head>
+    <body>
+        <h1>ACTB Connection Portal </h1>
+        
+            <table >
+                <tr>
+                    <td><label>Customer Name</label></td><td><input type="text" name="custname"  pattern='^[A-Za-Z\s]{1,}$s'placeholder="Enter the customer name" id="custname" required></td>
+                </tr>
+				<tr>
+                    <td><label>Customer Email</label></td><td><input type="text" name="email"  placeholder="abc@gmail.com" id="email"  pattern='^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$' required></td>
+                </tr>
+                <tr>
+                    <td><label>Telephone/ Mobile Number</label></td><td><input type="text" name="mobile" placeholder='Enter the Mobile Number' required pattern="[789]{1}[0-9]{9}"> </td>
+                </tr>
+                <tr>
+                    <td><label>Connection Type</label></td>
+                    <td>
+                        <select id="connectiontype" name="conntype" required>
+                            <option value="Pre">Pre</option>
+                            <option value="Post">Post</option>
+                          </select>
+                    </td>
+                </tr>
+				<tr>
+                    <td><label>Scheme Name</label></td>
+					<td>
+					<input type="radio" name="scheme" id="scheme1" value="Local">Local
+					<input type="radio" name="scheme" id="scheme2" value="STD">STD
+					<input type="radio" name="scheme" id="scheme3" value="FullTalkTime">FullTalkTime
+					</td>
+                </tr>
+				<tr>
+                    <td><label>Connection Duration</label></td><td><input type="number" name="duration"  id="duration" min=1 max=12 required>
+                    </td>
+                </tr>
+               <tr>
+
+
+			   
+                    <td><input type="submit" name="submit" value=" Connection Bill Amount" id="submit" onclick="return BillAmount();">
+					</td><td><input type="reset" value="Clear" name="clear" id="clear"></td>
+                </tr>
+                
+            </table>
+           
+            <div id="result"></div>
+        <table id="rentalcost">
+            <caption>Rental Cost Table</caption>
+            <tr>
+                <th>Connection Type</th><th>Call Limit</th><th>Monthly Rental</th>
+            </tr>
+            <tr>
+            <td>Pre</td>
+                
+                <td>500</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>Post</td>
+                <td>Unlimited</td>
+				<td>150</td>
+            </tr>
+          
+        </table>
+        
+    </body>
+</html>

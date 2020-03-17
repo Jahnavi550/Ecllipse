@@ -1,0 +1,17 @@
+package com.examples;
+
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestSpringMaven {
+
+public static void main(String[] args) {
+ApplicationContext context=new ClassPathXmlApplicationContext();
+HeloBean bean=(HeloBean)context.getBean("HelloWorldService");
+bean.sayHello();
+}
+
+}tSpringMaven {
+
+}

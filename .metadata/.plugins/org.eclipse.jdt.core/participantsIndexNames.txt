@@ -1,0 +1,11 @@
+INDEX VERSION 1.130
+D:\844343\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2043954902.index
+\SpringMaven\src\main\resources
+D:\844343\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1804854074.index
+\TrainingProject\src
+D:\844343\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2173982156.index
+\Maven\src\main\resources
+D:\844343\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3254359712.index
+\ctsspring\src\main\java
+D:\844343\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1271293590.index
+\SpringMvc\src\main\java

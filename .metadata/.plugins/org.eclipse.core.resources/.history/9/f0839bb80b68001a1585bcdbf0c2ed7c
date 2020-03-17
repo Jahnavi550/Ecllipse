@@ -1,0 +1,8 @@
+package com.examples;
+
+public class TestSpringMaven {
+	public static void main(String args[])
+	{
+		ApplicationContext context=new ClassPathXml
+	}
+}
